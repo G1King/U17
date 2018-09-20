@@ -47,7 +47,10 @@ class UBoutiqueListViewController: UBaseViewController {
         collection.register(cellType: UBoardCCell.self)
         collection.register(supplementaryViewType: UComicCHead.self, ofKind: UICollectionElementKindSectionHeader)
         collection.register(supplementaryViewType: UComicCFoot.self, ofKind: UICollectionElementKindSectionFooter)
-        
+        collection.uHead = URefreshHeader{
+            [weak self] in self?.fetchData(false)
+        }
+        collection.uFoot = URefreshDiscoverFooter()
         return collection;
         
     }()

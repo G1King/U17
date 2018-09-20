@@ -7,18 +7,19 @@
 //
 
 import UIKit
+
 protocol UComicViewWillEndDraggingDelegate: class {
     func comicWillEndDragging(_ scrollview: UIScrollView)
 }
 
 class UComicViewController: UBaseViewController {
-   private var comicid : Int = 0;
-   private lazy var mainScrollview: UIScrollView = {
-        let sc = UIScrollView()
+    private var comicid : Int = 0;
+    private lazy var mainScrollview: UBaseScrollview = {
+        let sc = UBaseScrollview()
         sc.delegate = self
         return sc
     }()
-   private lazy var detailVC: UDetailViewController = {
+    private lazy var detailVC: UDetailViewController = {
         let dc = UDetailViewController()
         dc.delegate = self
         return dc
@@ -26,13 +27,15 @@ class UComicViewController: UBaseViewController {
     
     private lazy var chapterVC: UChapterViewController = {
         let cc = UChapterViewController()
+        cc.delegate = self;
         return cc;
     }()
     private lazy var navigationBarY: CGFloat = {
-       return navigationController?.navigationBar.frame.maxY ?? 0
+        return navigationController?.navigationBar.frame.maxY ?? 0
     }()
     private lazy var commentVC: UCommentViewController = {
-       let cc = UCommentViewController()
+        let cc = UCommentViewController()
+        cc.delegate = self
         return cc
     }()
     
@@ -48,15 +51,34 @@ class UComicViewController: UBaseViewController {
     private var detailRealtime: DetailRealtimeModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         edgesForExtendedLayout = .top
+      loadData()
+//        let g = navigationController?.view.gestureRecognizers
+//        for gesture in g! {
+//            if gesture .isKind(of: UIScreenEdgePanGestureRecognizer.self){
+//                if mainScrollview.contentOffset.x == 0{
+//                    mainScrollview.panGestureRecognizer .require(toFail: gesture)
+//                    
+//                }
+//            }
+//        }
+    
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
-       
+//        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.barStyle(.clear)
+        
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.barStyle(.theme)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     convenience init(comicid: Int) {
         self.init()
         self.comicid = comicid
@@ -68,14 +90,20 @@ class UComicViewController: UBaseViewController {
             self?.detailStatic = detailStatic
             self?.headView.detailStatic = detailStatic?.comic
             self?.detailVC.detailStatic = detailStatic
+            self?.chapterVC.detailStatic = detailStatic
+            self?.commentVC.detailStatic = detailStatic
+            ApiProvider.request(API.commentList(object_id: detailStatic?.comic?.comic_id ?? 0, thread_id: detailStatic?.comic?.thread_id ?? 0, page: -1), model: CommentListModel.self, completion: { [weak self] (commentList) in
+                self?.commentVC.commentList = commentList
+                group.leave()
+            })
             
-            group.leave()
         }
         group.enter()
         ApiProvider.request(API.detailRealtime(comicid: comicid), model: DetailRealtimeModel.self) { [weak self] (returnData) in
             self?.detailRealtime = returnData
             self?.headView.detailRealTime = returnData?.comic
             self?.detailVC.detailRealtime = returnData
+            self?.chapterVC.detailRealtime = returnData
             group.leave()
         }
         group.enter()
@@ -85,22 +113,27 @@ class UComicViewController: UBaseViewController {
         }
         group.notify(queue: DispatchQueue.main) {
             self.detailVC.reloadData()
+            self.chapterVC.reloadData()
+            self.commentVC.reloadData()
         }
         
     }
     override func configUI() {
-      view.addSubview(mainScrollview)
+        view.addSubview(mainScrollview)
         mainScrollview.snp.makeConstraints{
             $0.edges.equalTo(self.view.usnp.edges).priority(.low)
             $0.top.equalToSuperview()
         }
         let contentView = UIView()
         mainScrollview.addSubview(contentView)
+//        contentView.backgroundColor = UIColor.red
+        
         contentView.snp.makeConstraints{
             $0.edges.equalToSuperview()
             $0.width.equalToSuperview()
             $0.height.equalToSuperview().offset(-navigationBarY)
         }
+        DLog(contentView.bounds.size.height)
         addChildViewController(pageVC)
         contentView.addSubview(pageVC.view)
         pageVC.view.snp.makeConstraints{
@@ -113,35 +146,34 @@ class UComicViewController: UBaseViewController {
     }
     override func configNavigationBar() {
         super.configNavigationBar()
-        navigationController?.barStyle(.clear)
+//        navigationController?.barStyle(.clear)
         mainScrollview.contentOffset = CGPoint(x: 0, y: -mainScrollview.parallaxHeader.height)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 extension UComicViewController : UIScrollViewDelegate, UComicViewWillEndDraggingDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        DLog(scrollView.contentOffset.y)
-        DLog(mainScrollview.parallaxHeader.minimumHeight)
+//        DLog(scrollView.contentOffset.y)
+//        DLog(mainScrollview.parallaxHeader.minimumHeight)
+       
         if scrollView.contentOffset.y >= -mainScrollview.parallaxHeader.minimumHeight {
-        
-            UIView.animate(withDuration: 0.4) { [weak self] in
-                self?.navigationController?.barStyle(.theme)
-                
-                self?.navigationController?.title = self?.detailStatic?.comic?.name
-            }
+            
+            navigationController?.barStyle(.theme)
+            
+            navigationItem.title = detailStatic?.comic?.name
         }else{
-      
-            UIView.animate(withDuration: 0.4) { [weak self] in
-                self?.navigationController?.barStyle(.clear)
-                self?.navigationController?.title = ""
-            }
+            navigationController?.barStyle(.clear)
+            navigationItem.title = ""
+            
         }
     }
     func comicWillEndDragging(_ scrollview: UIScrollView) {
+        DLog(self.mainScrollview.parallaxHeader.minimumHeight)
+        DLog(self.mainScrollview.parallaxHeader.height)
         if scrollview.contentOffset.y > 0 {
             mainScrollview.setContentOffset(CGPoint(x: 0, y: -self.mainScrollview.parallaxHeader.minimumHeight), animated: true)
         }else if scrollview.contentOffset.y < 0 {

@@ -12,7 +12,6 @@ class UNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         guard let interactionGes = interactivePopGestureRecognizer else { return  }
         guard let targetView = interactionGes.view else { return  }

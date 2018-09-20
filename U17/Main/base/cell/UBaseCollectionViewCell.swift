@@ -11,7 +11,7 @@ import Reusable
 class UBaseCollectionViewCell: UICollectionViewCell,Reusable {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.contentView.backgroundColor = UIColor.white
+//        self.contentView.backgroundColor = UIColor.white
         configUI();
     }
     

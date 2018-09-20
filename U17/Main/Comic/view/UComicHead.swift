@@ -66,6 +66,7 @@ class UComicHead: UIView {
         let tw = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         tw.backgroundColor = UIColor.clear
         tw.dataSource = self
+        tw.delegate = self
         tw.showsHorizontalScrollIndicator = false
         tw.register(cellType: UComicHeadCCell.self)
         return tw
@@ -91,6 +92,8 @@ class UComicHead: UIView {
         nameLabel.snp.makeConstraints{
             $0.left.equalTo(coreView.snp.right).offset(20)
             $0.right.greaterThanOrEqualToSuperview().offset(-20)
+            $0.top.equalTo(coreView)
+            $0.height.equalTo(20)
         }
         
         bgView.addSubview(authorLabel)
@@ -138,13 +141,13 @@ class UComicHead: UIView {
         }
     }
 }
-extension UComicHead: UICollectionViewDataSource{
+extension UComicHead: UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return themes?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: UComicHeadCCell.self)
-        cell.titleLabel.text = themes?[indexPath.row]
+        cell.titleLabel.text = themes?[indexPath.item]
         return cell
     }
 }

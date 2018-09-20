@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
-extension AppDelegate {
+extension UIApplication {
     class func changeOrientationTo(landscapeRight: Bool) {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return  }
         if landscapeRight == true {

@@ -17,6 +17,5 @@ pod 'MBProgressHUD'
 pod 'HMSegmentedControl'
 pod 'IQKeyboardManagerSwift'
 pod 'EmptyDataSet-Swift'
-
 end
 

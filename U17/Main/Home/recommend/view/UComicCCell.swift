@@ -34,6 +34,7 @@ class UComicCCell: UBaseCollectionViewCell {
         return dl
     }()
     override func configUI() {
+        contentView.backgroundColor = UIColor.white
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints{
             $0.left.right.equalToSuperview().inset(UIEdgeInsetsMake(0, 10, 0, 10));

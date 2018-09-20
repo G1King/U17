@@ -1,26 +1,26 @@
 PODS:
-  - Alamofire (4.7.2)
+  - Alamofire (4.7.3)
   - EmptyDataSet-Swift (4.0.5)
-  - HandyJSON (4.1.1)
+  - HandyJSON (4.1.3)
   - HMSegmentedControl (1.5.5)
-  - IQKeyboardManagerSwift (6.0.4)
-  - Kingfisher (4.8.0)
-  - LLCycleScrollView (1.4.8):
+  - IQKeyboardManagerSwift (6.1.1)
+  - Kingfisher (4.9.0)
+  - LLCycleScrollView (1.5.0):
     - Kingfisher
   - MBProgressHUD (1.1.0)
-  - MJRefresh (3.1.15.3)
+  - MJRefresh (3.1.15.7)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
   - Result (3.2.4)
-  - Reusable (4.0.2):
-    - Reusable/Storyboard (= 4.0.2)
-    - Reusable/View (= 4.0.2)
-  - Reusable/Storyboard (4.0.2)
-  - Reusable/View (4.0.2)
-  - SnapKit (4.0.0)
+  - Reusable (4.0.3):
+    - Reusable/Storyboard (= 4.0.3)
+    - Reusable/View (= 4.0.3)
+  - Reusable/Storyboard (4.0.3)
+  - Reusable/View (4.0.3)
+  - SnapKit (4.0.1)
   - Then (2.3.0)
 
 DEPENDENCIES:
@@ -55,21 +55,21 @@ SPEC REPOS:
     - Then
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   EmptyDataSet-Swift: a25810f50c3adfaa3840aa33ae8b5ba12ac29279
-  HandyJSON: 3a3de917c4118767ffe41c29b5acba23409649f4
+  HandyJSON: bc81fbeb62d65ae5d5942ed29bc4a8265d18c1e8
   HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
-  IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
-  Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
-  LLCycleScrollView: ba2f11e78a537cd3b36df58308822babbd41b202
+  IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
+  Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
+  LLCycleScrollView: e4ec004ac76a0e60e9bbfa3381d9145910d0434f
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  Reusable: 584a5629747c52e0f6a77841b400dc2643f6fa0f
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  Reusable: 12b67a60e1f3e8c523cc910795dab733f58fbc7e
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
 
-PODFILE CHECKSUM: bf684d2c26b121be47656afb7bc8b9b7265093a3
+PODFILE CHECKSUM: e2f68eccd11828431739dabaf3fd39ceae7daff0
 
 COCOAPODS: 1.5.3
