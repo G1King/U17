@@ -43,12 +43,16 @@
 		B361E0B02147ABA7004EBFC8 /* UReadCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361E0AF2147ABA7004EBFC8 /* UReadCCell.swift */; };
 		B361E0B22147ACAE004EBFC8 /* UReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361E0B12147ACAE004EBFC8 /* UReadTopBar.swift */; };
 		B361E0B42147AF88004EBFC8 /* UReadBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B361E0B32147AF88004EBFC8 /* UReadBottomBar.swift */; };
+		B3673B982159D3BA0082234A /* USearchTHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3673B972159D3BA0082234A /* USearchTHead.swift */; };
+		B3673B9A2159D4570082234A /* USearchTFoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3673B992159D4570082234A /* USearchTFoot.swift */; };
+		B3673B9C2159D5130082234A /* UBaseTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3673B9B2159D5130082234A /* UBaseTableViewHeaderFooterView.swift */; };
 		B369B4BF2108006500A1E078 /* UAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B369B4BE2108006500A1E078 /* UAPI.swift */; };
 		B36A97E3213681C900A3D0FE /* UWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A97E2213681C900A3D0FE /* UWebViewController.swift */; };
 		B36A97E521368F7800A3D0FE /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A97E421368F7800A3D0FE /* UIBarButtonItemExtension.swift */; };
 		B36A97E72136918800A3D0FE /* UDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A97E62136918700A3D0FE /* UDetailViewController.swift */; };
 		B36A97E9213691D800A3D0FE /* UChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A97E8213691D800A3D0FE /* UChapterViewController.swift */; };
 		B36A97EB2136923100A3D0FE /* UCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A97EA2136923100A3D0FE /* UCommentViewController.swift */; };
+		B36DFA9D215482DE00B64DC8 /* USearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36DFA9C215482DE00B64DC8 /* USearchViewController.swift */; };
 		B37B320A214606A90074A358 /* UReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B3209214606A90074A358 /* UReadViewController.swift */; };
 		B37B320C214614E00074A358 /* UCommentTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B320B214614E00074A358 /* UCommentTCell.swift */; };
 		B389AF72210FE992007B06E7 /* UBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B389AF71210FE992007B06E7 /* UBaseCollectionViewCell.swift */; };
@@ -132,12 +136,16 @@
 		B361E0AF2147ABA7004EBFC8 /* UReadCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UReadCCell.swift; sourceTree = "<group>"; };
 		B361E0B12147ACAE004EBFC8 /* UReadTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UReadTopBar.swift; sourceTree = "<group>"; };
 		B361E0B32147AF88004EBFC8 /* UReadBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UReadBottomBar.swift; sourceTree = "<group>"; };
+		B3673B972159D3BA0082234A /* USearchTHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USearchTHead.swift; sourceTree = "<group>"; };
+		B3673B992159D4570082234A /* USearchTFoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USearchTFoot.swift; sourceTree = "<group>"; };
+		B3673B9B2159D5130082234A /* UBaseTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBaseTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		B369B4BE2108006500A1E078 /* UAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UAPI.swift; sourceTree = "<group>"; };
 		B36A97E2213681C900A3D0FE /* UWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UWebViewController.swift; sourceTree = "<group>"; };
 		B36A97E421368F7800A3D0FE /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 		B36A97E62136918700A3D0FE /* UDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDetailViewController.swift; sourceTree = "<group>"; };
 		B36A97E8213691D800A3D0FE /* UChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UChapterViewController.swift; sourceTree = "<group>"; };
 		B36A97EA2136923100A3D0FE /* UCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCommentViewController.swift; sourceTree = "<group>"; };
+		B36DFA9C215482DE00B64DC8 /* USearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USearchViewController.swift; sourceTree = "<group>"; };
 		B37B3209214606A90074A358 /* UReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UReadViewController.swift; sourceTree = "<group>"; };
 		B37B320B214614E00074A358 /* UCommentTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCommentTCell.swift; sourceTree = "<group>"; };
 		B389AF71210FE992007B06E7 /* UBaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +220,7 @@
 			children = (
 				B320E094212A9F0200ED02A7 /* UBaseCollectionReusableView.swift */,
 				B35392D0213FA2C000CC865E /* UBaseScrollview.swift */,
+				B3673B9B2159D5130082234A /* UBaseTableViewHeaderFooterView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -350,6 +359,15 @@
 				B34EC0FB2153499F00891F22 /* URankTCell.swift */,
 			);
 			path = rank;
+			sourceTree = "<group>";
+		};
+		B3673B962159D37D0082234A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B3673B972159D3BA0082234A /* USearchTHead.swift */,
+				B3673B992159D4570082234A /* USearchTFoot.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		B389AF6F210FE93D007B06E7 /* view */ = {
@@ -525,6 +543,8 @@
 		B3939B6A20FD7C2100235043 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				B3673B962159D37D0082234A /* view */,
+				B36DFA9C215482DE00B64DC8 /* USearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -778,6 +798,7 @@
 				B361E0B22147ACAE004EBFC8 /* UReadTopBar.swift in Sources */,
 				B36042E6212CEEBE0059DF2F /* UBaseTableViewCell.swift in Sources */,
 				B34EC0FC2153499F00891F22 /* URankTCell.swift in Sources */,
+				B3673B982159D3BA0082234A /* USearchTHead.swift in Sources */,
 				B32F178F2134F33A000E5ECF /* UComicCFoot.swift in Sources */,
 				B389AF72210FE992007B06E7 /* UBaseCollectionViewCell.swift in Sources */,
 				B369B4BF2108006500A1E078 /* UAPI.swift in Sources */,
@@ -790,6 +811,7 @@
 				B32F17912134F6A9000E5ECF /* UComicCCell.swift in Sources */,
 				B35CE61721097B640059DE4D /* URankListViewController.swift in Sources */,
 				B345EF2C2139169B0039CC7A /* ConstraintArray+Extensions.swift in Sources */,
+				B36DFA9D215482DE00B64DC8 /* USearchViewController.swift in Sources */,
 				B345EF312139169B0039CC7A /* UIScrollView+ParallaxHeader.swift in Sources */,
 				B3939B2D20FD788E00235043 /* AppDelegate.swift in Sources */,
 				B320E095212A9F0200ED02A7 /* UBaseCollectionReusableView.swift in Sources */,
@@ -798,7 +820,9 @@
 				B36A97E521368F7800A3D0FE /* UIBarButtonItemExtension.swift in Sources */,
 				B32F178D2134EEA4000E5ECF /* UComicViewController.swift in Sources */,
 				B35CE61121097B1E0059DE4D /* UBoutiqueListViewController.swift in Sources */,
+				B3673B9A2159D4570082234A /* USearchTFoot.swift in Sources */,
 				B36A97E3213681C900A3D0FE /* UWebViewController.swift in Sources */,
+				B3673B9C2159D5130082234A /* UBaseTableViewHeaderFooterView.swift in Sources */,
 				B3F34FA621421E2200B5E372 /* UChapterCHead.swift in Sources */,
 				B345EF332139169B0039CC7A /* UEmptyDataSet.swift in Sources */,
 				B36A97E9213691D800A3D0FE /* UChapterViewController.swift in Sources */,
