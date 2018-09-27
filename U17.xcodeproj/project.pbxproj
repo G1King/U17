@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30C0403215C6B350014424E /* URankCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C0402215C6B350014424E /* URankCCell.swift */; };
+		B30C0405215C6B470014424E /* UTopCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C0404215C6B470014424E /* UTopCCell.swift */; };
+		B30C0407215C7EB70014424E /* UCollectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C0406215C7EB70014424E /* UCollectListViewController.swift */; };
+		B30C0409215C7EC40014424E /* UDocumentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C0408215C7EC40014424E /* UDocumentListViewController.swift */; };
+		B30C040B215C7ED10014424E /* UDownloadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C040A215C7ED10014424E /* UDownloadListViewController.swift */; };
+		B30C040D215C88640014424E /* UMineHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C040C215C88640014424E /* UMineHead.swift */; };
 		B320E095212A9F0200ED02A7 /* UBaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320E094212A9F0200ED02A7 /* UBaseCollectionReusableView.swift */; };
 		B320E097212AA93C00ED02A7 /* UComicCHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320E096212AA93C00ED02A7 /* UComicCHead.swift */; };
 		B32F178D2134EEA4000E5ECF /* UComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F178C2134EEA4000E5ECF /* UComicViewController.swift */; };
@@ -100,6 +106,12 @@
 
 /* Begin PBXFileReference section */
 		2D91E301F9A58D2527222954 /* Pods_U17.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_U17.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B30C0402215C6B350014424E /* URankCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URankCCell.swift; sourceTree = "<group>"; };
+		B30C0404215C6B470014424E /* UTopCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTopCCell.swift; sourceTree = "<group>"; };
+		B30C0406215C7EB70014424E /* UCollectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCollectListViewController.swift; sourceTree = "<group>"; };
+		B30C0408215C7EC40014424E /* UDocumentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDocumentListViewController.swift; sourceTree = "<group>"; };
+		B30C040A215C7ED10014424E /* UDownloadListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDownloadListViewController.swift; sourceTree = "<group>"; };
+		B30C040C215C88640014424E /* UMineHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMineHead.swift; sourceTree = "<group>"; };
 		B320E094212A9F0200ED02A7 /* UBaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBaseCollectionReusableView.swift; sourceTree = "<group>"; };
 		B320E096212AA93C00ED02A7 /* UComicCHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UComicCHead.swift; sourceTree = "<group>"; };
 		B32F178C2134EEA4000E5ECF /* UComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UComicViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +225,15 @@
 				2D91E301F9A58D2527222954 /* Pods_U17.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B30C0401215C68140014424E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B30C0402215C6B350014424E /* URankCCell.swift */,
+				B30C0404215C6B470014424E /* UTopCCell.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		B320E093212A9EE100ED02A7 /* view */ = {
@@ -511,6 +532,9 @@
 			isa = PBXGroup;
 			children = (
 				B3939B7120FD7CDC00235043 /* UBookViewController.swift */,
+				B30C0406215C7EB70014424E /* UCollectListViewController.swift */,
+				B30C0408215C7EC40014424E /* UDocumentListViewController.swift */,
+				B30C040A215C7ED10014424E /* UDownloadListViewController.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -518,6 +542,7 @@
 		B3939B6720FD7C0A00235043 /* Cate */ = {
 			isa = PBXGroup;
 			children = (
+				B30C0401215C68140014424E /* view */,
 				B3939B6F20FD7CC700235043 /* UCateListViewController.swift */,
 			);
 			path = Cate;
@@ -536,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				B3939B7320FD7CED00235043 /* UMineViewController.swift */,
+				B30C040C215C88640014424E /* UMineHead.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -793,6 +819,8 @@
 				B389AF74210FEAA4007B06E7 /* UBoardCCell.swift in Sources */,
 				B345EF302139169B0039CC7A /* ParallaxHeaderMode.swift in Sources */,
 				B35464F9212B9B2200F89281 /* UComicListViewController.swift in Sources */,
+				B30C0403215C6B350014424E /* URankCCell.swift in Sources */,
+				B30C0407215C7EB70014424E /* UCollectListViewController.swift in Sources */,
 				B36042E4212CEE970059DF2F /* UComicTCell.swift in Sources */,
 				B345EF2D2139169B0039CC7A /* ConstraintArrayDSL.swift in Sources */,
 				B361E0B22147ACAE004EBFC8 /* UReadTopBar.swift in Sources */,
@@ -812,17 +840,21 @@
 				B35CE61721097B640059DE4D /* URankListViewController.swift in Sources */,
 				B345EF2C2139169B0039CC7A /* ConstraintArray+Extensions.swift in Sources */,
 				B36DFA9D215482DE00B64DC8 /* USearchViewController.swift in Sources */,
+				B30C040B215C7ED10014424E /* UDownloadListViewController.swift in Sources */,
 				B345EF312139169B0039CC7A /* UIScrollView+ParallaxHeader.swift in Sources */,
 				B3939B2D20FD788E00235043 /* AppDelegate.swift in Sources */,
 				B320E095212A9F0200ED02A7 /* UBaseCollectionReusableView.swift in Sources */,
 				B3939B6020FD7AC800235043 /* UBaseViewController.swift in Sources */,
+				B30C040D215C88640014424E /* UMineHead.swift in Sources */,
 				B3939B7820FDB2A600235043 /* Macro.swift in Sources */,
 				B36A97E521368F7800A3D0FE /* UIBarButtonItemExtension.swift in Sources */,
+				B30C0405215C6B470014424E /* UTopCCell.swift in Sources */,
 				B32F178D2134EEA4000E5ECF /* UComicViewController.swift in Sources */,
 				B35CE61121097B1E0059DE4D /* UBoutiqueListViewController.swift in Sources */,
 				B3673B9A2159D4570082234A /* USearchTFoot.swift in Sources */,
 				B36A97E3213681C900A3D0FE /* UWebViewController.swift in Sources */,
 				B3673B9C2159D5130082234A /* UBaseTableViewHeaderFooterView.swift in Sources */,
+				B30C0409215C7EC40014424E /* UDocumentListViewController.swift in Sources */,
 				B3F34FA621421E2200B5E372 /* UChapterCHead.swift in Sources */,
 				B345EF332139169B0039CC7A /* UEmptyDataSet.swift in Sources */,
 				B36A97E9213691D800A3D0FE /* UChapterViewController.swift in Sources */,

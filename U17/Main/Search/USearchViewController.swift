@@ -29,8 +29,11 @@ class USearchViewController: UBaseViewController {
         tf.clearButtonMode = .whileEditing
         tf.returnKeyType = .search
         tf.delegate = self
+        tf.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+        tf.leftViewMode =  .always
         NotificationCenter.default.addObserver(self, selector: #selector(textFiledTextDidChange(not:)), name: .UITextFieldTextDidChange, object: tf)
         return tf
+        
     }()
     private lazy var historyTableView: UITableView = {
         let tw = UITableView(frame: CGRect.zero, style: .grouped)
@@ -60,6 +63,7 @@ class USearchViewController: UBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self .loadHistory()
     }
     func loadHistory(){
         historyTableView.isHidden = false
@@ -90,7 +94,7 @@ class USearchViewController: UBaseViewController {
         navigationItem.titleView = search
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", target: self, action: #selector(cancelAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", target: self, action: #selector(cancelAction))
     }
     @objc func cancelAction(){
         search.resignFirstResponder()
@@ -107,6 +111,30 @@ class USearchViewController: UBaseViewController {
                 self?.searchTableView.reloadData()
             })
         }else{
+            historyTableView.isHidden = false
+            searchTableView.isHidden = true
+            resultTableView.isHidden = true
+          
+        }
+    }
+    func searchResult(_ text: String) {
+        if text.count > 0 {
+            historyTableView.isHidden = true
+            searchTableView.isHidden = true
+            resultTableView.isHidden = false
+            ApiLoadingProvider.request(API.searchResult(argCon: 0, q: text), model: SearchResultModel.self) { [weak self] (data) in
+                self?.comics = data?.comics
+                self?.resultTableView.reloadData()
+            }
+            let defaults = UserDefaults.standard
+            var historyV = defaults.value(forKey: String.searchHistoryKey) as? [String] ?? [String]()
+            historyV.removeAll([text])
+            historyV.insertFirst(text)
+            searchHistory = historyV
+            historyTableView.reloadData()
+            defaults.set(searchHistory, forKey: String.searchHistoryKey)
+            defaults.synchronize()
+        }else {
             historyTableView.isHidden = false
             searchTableView.isHidden = true
             resultTableView.isHidden = true
@@ -149,10 +177,106 @@ extension USearchViewController: UITableViewDelegate, UITableViewDataSource, UIT
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == resultTableView {
-            return 100
+            return 180
         }else {
             return 44
         }
     }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == historyTableView {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UBaseTableViewCell.self)
+            cell.textLabel?.text = searchHistory?[indexPath.row]
+            cell.textLabel?.textColor = UIColor.darkGray
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
+            cell.separatorInset = .zero
+            return cell
+        }else if tableView == searchTableView {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UBaseTableViewCell.self)
+            cell.textLabel?.text = relative?[indexPath.row].name
+            cell.textLabel?.textColor = UIColor.darkGray
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
+            cell.separatorInset = .zero
+            return cell
+        }else if tableView == resultTableView{
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UComicTCell.self)
+            cell.model = comics?[indexPath.row]
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UBaseTableViewCell.self)
     
+            return cell
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if  tableView == historyTableView {
+            searchResult(searchHistory[indexPath.row])
+        }else if tableView == searchTableView {
+            searchResult(self.relative?[indexPath.row].name ?? "")
+        }else if tableView == resultTableView {
+            guard let model = comics?[indexPath.row] else {return}
+            let vc = UComicViewController(comicid: model.comicId)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if tableView == historyTableView {
+            if section == 0 {
+            return searchHistory.count == 0 ? CGFloat.leastNormalMagnitude : 44
+            }else {
+                return 44
+            }
+            
+        }else if tableView == searchTableView {
+            return comics?.count ?? 0 > 0 ? 44 : CGFloat.leastNormalMagnitude
+        }else {
+            return CGFloat.leastNormalMagnitude
+        }
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if tableView == historyTableView {
+            let head = tableView.dequeueReusableHeaderFooterView(USearchTHead.self)
+            head?.titleLabel.text = section == 0 ? "看看你都搜索过什么?" : "大家都在搜"
+            head?.moreButton.setImage(section == 0 ? UIImage(named: "search_history_delete") : UIImage(named: "search_keyword_refresh"), for: .normal)
+            head?.moreButton.isHidden = section == 0 ? (searchHistory.count == 0) : false
+            head?.moreActionClosure{
+                [weak self] in
+                if section == 0 {
+                    self?.searchHistory.removeAll()
+                    self?.historyTableView.reloadData()
+                    UserDefaults.standard.removeObject(forKey: String.searchHistoryKey)
+                    UserDefaults.standard.synchronize()
+                }else {
+                    self?.loadHistory()
+                }
+            }
+            return head
+        }else if tableView == searchTableView {
+            let head = tableView.dequeueReusableHeaderFooterView(USearchTHead.self)
+            head?.titleLabel.text = "找到相关的漫画\(comics?.count ?? 0)本"
+            head?.moreButton.isHidden = true
+            return head
+        }
+        return nil;
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if tableView == historyTableView {
+            return section == 0 ? 10 : tableView.frame.height - 44
+        }else {
+            return CGFloat.leastNormalMagnitude
+        }
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if tableView == historyTableView  && section == 1{
+            
+            let foot = tableView.dequeueReusableHeaderFooterView(USearchTFoot.self)
+            foot?.data = hotItems ?? []
+            foot?.didSelectIndexClosure({ [weak self] (int, model) in
+            let vc  = UComicViewController(comicid: model.comic_id)
+                self?.navigationController?.pushViewController(vc, animated: true)
+            })
+            return foot
+        }
+        return nil
+    }
 }

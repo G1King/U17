@@ -22,7 +22,7 @@ class UTabBarController: UITabBarController {
         let classVC = UCateListViewController();
         addChildVC(classVC, title: "分类", defaultImage: UIImage(named: "tab_class")!, selectImage: UIImage(named: "tab_class_S")!)
         
-        let bookVC = UBookViewController();
+        let bookVC = UBookViewController(titles: ["收藏","书架","下载"], vcs: [UCollectListViewController(),UDocumentListViewController(),UDownloadListViewController()], pageStyle: .navigationBarSement);
         addChildVC(bookVC, title: "书架", defaultImage: UIImage(named: "tab_book")!, selectImage: UIImage(named: "tab_book_S")!)
         
         /// 我的
