@@ -17,5 +17,6 @@ pod 'MBProgressHUD'
 pod 'HMSegmentedControl'
 pod 'IQKeyboardManagerSwift'
 pod 'EmptyDataSet-Swift'
+pod 'CocoaLumberjack/Swift'
 end
 

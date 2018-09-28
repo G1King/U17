@@ -10,12 +10,13 @@ import UIKit
 import Alamofire
 import IQKeyboardManagerSwift
 import MBProgressHUD
+import CocoaLumberjack
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var orientation: UIInterfaceOrientationMask = .portrait
-
+    let  DDLogLevel: DDLogLevel  = .verbose;
     lazy var reachability: NetworkReachabilityManager? = {
         return NetworkReachabilityManager(host: "http://app.u17.com");
     }()
@@ -26,14 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = UTabBarController()
         window?.makeKeyAndVisible()
-      
+         DDLog.add(DDTTYLogger.sharedInstance)
+//         DDLog.add(DDASLLogger.sharedInstance)
+     
         // Override point for customization after application launch.
+ 
         return true
     }
     func configBase() {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-        
+    
         let defaults = UserDefaults.standard
         if defaults.value(forKey: String.sexTypeKey) == nil {
             defaults.set(1, forKey: String.sexTypeKey)

@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.7.3)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Swift (3.4.2):
+    - CocoaLumberjack/Default
   - EmptyDataSet-Swift (4.0.5)
   - HandyJSON (4.1.3)
   - HMSegmentedControl (1.5.5)
@@ -24,6 +27,7 @@ PODS:
   - Then (2.3.0)
 
 DEPENDENCIES:
+  - CocoaLumberjack/Swift
   - EmptyDataSet-Swift
   - HandyJSON
   - HMSegmentedControl
@@ -40,6 +44,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - CocoaLumberjack
     - EmptyDataSet-Swift
     - HandyJSON
     - HMSegmentedControl
@@ -56,6 +61,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   EmptyDataSet-Swift: a25810f50c3adfaa3840aa33ae8b5ba12ac29279
   HandyJSON: bc81fbeb62d65ae5d5942ed29bc4a8265d18c1e8
   HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
@@ -70,6 +76,6 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
 
-PODFILE CHECKSUM: e2f68eccd11828431739dabaf3fd39ceae7daff0
+PODFILE CHECKSUM: edf10ef9d1abbd705564c55a794b5f4ff2824768
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.1
