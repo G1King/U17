@@ -46,7 +46,7 @@ class UPageViewController: UBaseViewController{
 // init UI
     override func configUI() {
         guard let vcs = vcs else { return  }
-        addChildViewController(pageVC)
+        addChild(pageVC)
         view.addSubview(pageVC.view)
         pageVC.dataSource = self
         pageVC.delegate = self
@@ -54,21 +54,21 @@ class UPageViewController: UBaseViewController{
         switch pageStyle {
         case .none:
             pageVC.view.snp.makeConstraints { $0.edges.equalToSuperview()}
-        case .navigationBarSement:
+        case .navigationBarSement?:
             segment.backgroundColor = UIColor.clear
-            segment.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white.withAlphaComponent(0.5),NSAttributedStringKey.font:UIFont.systemFont(ofSize: 20)]
+            segment.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white.withAlphaComponent(0.5),NSAttributedString.Key.font:UIFont.systemFont(ofSize: 20)]
         
-            segment.selectedTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white,
-                                                   NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)]
+            segment.selectedTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                                                   NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
             segment.selectionIndicatorLocation = .none
             navigationItem.titleView = segment
             segment.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH - 120, height: 40);
             pageVC.view.snp.makeConstraints{$0.edges.equalToSuperview()}
-        case .topTabBar:
-            segment.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
-                                           NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
-            segment.selectedTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor(r: 127, g: 221, b: 146),
-                                                   NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
+        case .topTabBar?:
+            segment.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                           NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)]
+            segment.selectedTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(r: 127, g: 221, b: 146),
+                                                   NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)]
             segment.selectionIndicatorLocation = .down
             segment.selectionIndicatorColor = UIColor(r: 127, g: 221, b: 146)
             segment.selectionIndicatorHeight = 2
@@ -96,7 +96,7 @@ class UPageViewController: UBaseViewController{
         let index = segment.selectedSegmentIndex
         if currentSelectIndex != index {
             let target: [UIViewController] = [vcs[index]]
-            let direction: UIPageViewControllerNavigationDirection = currentSelectIndex > index ? .reverse : .forward;
+            let direction: UIPageViewController.NavigationDirection = currentSelectIndex > index ? .reverse : .forward;
             pageVC.setViewControllers(target, direction: direction, animated: true) { [weak self] (finsh) in
                 if finsh {
                     self?.currentSelectIndex = index
@@ -118,7 +118,16 @@ extension UPageViewController : UIPageViewControllerDelegate,UIPageViewControlle
         return vcs[beforeIndex]
         
     }
-    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let pan = gestureRecognizer as! UIPanGestureRecognizer
+        let velocity: CGPoint = pan.velocity(in: self.view)
+        let location: CGPoint =  pan.location(in: self.view)
+        if velocity.x > 0  && Int(location.x) % Int(UIScreen.main.bounds.size.width) < 60{
+            return false
+        }
+        return true
+        
+    }
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let index = vcs.index(of: viewController) else { return nil }
         let afterIndex = index + 1

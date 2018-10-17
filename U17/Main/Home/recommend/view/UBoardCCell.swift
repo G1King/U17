@@ -33,7 +33,7 @@ class UBoardCCell: UBaseCollectionViewCell {
         })
         titleLbl.snp.makeConstraints({
             $0.top.equalTo(iconImageView.snp.bottom)
-            $0.left.right.equalToSuperview().inset(UIEdgeInsetsMake(0, 10, 0, 10))
+            $0.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
             $0.height.equalTo(20)
         })
     }

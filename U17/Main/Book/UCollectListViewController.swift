@@ -9,13 +9,36 @@
 import UIKit
 
 class UCollectListViewController: UBaseViewController {
-
+ let v = UIImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        v.frame = CGRect(x: 20, y: 20, width: 100, height: 100);
+        view.addSubview(v)
+        let i =  rxswiftDemo(addImage: UIImage(named: "normal_placeholder_v")!, mskImage: UIImage(named: "yaofan")!)
+        v.image = i;
     }
-
+    func rxswiftDemo(addImage add: UIImage, mskImage: UIImage) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(add.size, false, 0.0)
+        add.draw(in: CGRect(x: 0, y: 0, width: add.size.width, height: add.size.height))
+        mskImage.draw(in: CGRect(x: 0, y: 0, width: add.size.width, height: add.size.height/2))
+//        mskImage.draw(in: CGRect(x: 0, y: add.size.height/2, width: add.size.width, height: add.size.height/2))
+        let getimage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return getimage
+    
+    }
+    func swapTwoValues<T>( a: inout T, b: inout T)  {
+        let t = a
+        a = b
+        b = t
+        
+        
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.navigationController?.pushViewController(UIScrollViewController(), animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -37,6 +37,7 @@
 		B345EF372139169B0039CC7A /* UHairPowder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B345EF2B2139169B0039CC7A /* UHairPowder.swift */; };
 		B345EF39213917890039CC7A /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B345EF38213917890039CC7A /* DispatchQueueExtension.swift */; };
 		B34EC0FC2153499F00891F22 /* URankTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34EC0FB2153499F00891F22 /* URankTCell.swift */; };
+		B34F002921770B460010C6D9 /* UIScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F002821770B460010C6D9 /* UIScrollViewController.swift */; };
 		B35392CF213F813800CC865E /* UOtherWorksCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35392CE213F813800CC865E /* UOtherWorksCollectionCell.swift */; };
 		B35392D1213FA2C000CC865E /* UBaseScrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35392D0213FA2C000CC865E /* UBaseScrollview.swift */; };
 		B35464F9212B9B2200F89281 /* UComicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35464F8212B9B2200F89281 /* UComicListViewController.swift */; };
@@ -136,6 +137,7 @@
 		B345EF2B2139169B0039CC7A /* UHairPowder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UHairPowder.swift; sourceTree = "<group>"; };
 		B345EF38213917890039CC7A /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
 		B34EC0FB2153499F00891F22 /* URankTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URankTCell.swift; sourceTree = "<group>"; };
+		B34F002821770B460010C6D9 /* UIScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewController.swift; sourceTree = "<group>"; };
 		B35392CE213F813800CC865E /* UOtherWorksCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UOtherWorksCollectionCell.swift; sourceTree = "<group>"; };
 		B35392D0213FA2C000CC865E /* UBaseScrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBaseScrollview.swift; sourceTree = "<group>"; };
 		B35464F8212B9B2200F89281 /* UComicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UComicListViewController.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				B30C0406215C7EB70014424E /* UCollectListViewController.swift */,
 				B30C0408215C7EC40014424E /* UDocumentListViewController.swift */,
 				B30C040A215C7ED10014424E /* UDownloadListViewController.swift */,
+				B34F002821770B460010C6D9 /* UIScrollViewController.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -755,6 +758,8 @@
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
@@ -773,6 +778,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
@@ -811,6 +818,7 @@
 				B3923E4F2137C343001A1170 /* UComicHead.swift in Sources */,
 				B345EF2F2139169B0039CC7A /* UIBarButtonItemFixSpace.swift in Sources */,
 				B32F179321351D5D000E5ECF /* ArrayExtensions.swift in Sources */,
+				B34F002921770B460010C6D9 /* UIScrollViewController.swift in Sources */,
 				B37B320C214614E00074A358 /* UCommentTCell.swift in Sources */,
 				B3F34FA421421C2600B5E372 /* UChapterCCell.swift in Sources */,
 				B33F8901213E0A0700CA0916 /* UGuessLikeTCell.swift in Sources */,

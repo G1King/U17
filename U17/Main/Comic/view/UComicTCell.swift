@@ -49,7 +49,7 @@ class UComicTCell: UBaseTableViewCell {
     override func configUI() {
         contentView.addSubview(iconView)
         iconView.snp.makeConstraints{
-            $0.left.top.bottom.equalToSuperview().inset(UIEdgeInsetsMake(10, 10, 10, 0))
+            $0.left.top.bottom.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0))
             $0.width.equalTo(100)
         }
         contentView.addSubview(titleLbl)

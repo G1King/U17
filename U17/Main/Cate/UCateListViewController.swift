@@ -21,8 +21,8 @@ class UCateListViewController: UBaseViewController {
         sn.setTitleColor(.white, for: .normal)
         sn.setImage(UIImage(named: "nav_search")?.withRenderingMode(.alwaysOriginal), for: .normal)
         sn.addTarget(self, action: #selector(searchAction), for: .touchUpInside)
-        sn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
-        sn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5)
+        sn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        sn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
         return sn
     }()
     lazy var collectionView: UICollectionView = {
@@ -104,7 +104,7 @@ extension UCateListViewController : UICollectionViewDelegate,UICollectionViewDat
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(10, 10, 10, 10);
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10);
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = floor((SCREEN_WIDTH - 40) / 3)

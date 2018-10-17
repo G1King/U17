@@ -8,6 +8,8 @@
 
 import UIKit
 import Moya
+import RxSwift
+import RxCocoa
 class USearchViewController: UBaseViewController {
     
     private var  hotItems: [SearchItemModel]?
@@ -31,7 +33,7 @@ class USearchViewController: UBaseViewController {
         tf.delegate = self
         tf.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
         tf.leftViewMode =  .always
-        NotificationCenter.default.addObserver(self, selector: #selector(textFiledTextDidChange(not:)), name: .UITextFieldTextDidChange, object: tf)
+        NotificationCenter.default.addObserver(self, selector: #selector(textFiledTextDidChange(not:)), name:UITextField.textDidChangeNotification, object: tf)
         return tf
         
     }()
@@ -73,6 +75,7 @@ class USearchViewController: UBaseViewController {
             self?.hotItems = data?.hotItems
             self?.historyTableView.reloadData()
         }
+      
     }
     override func configUI() {
         view.addSubview(historyTableView)

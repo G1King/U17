@@ -9,11 +9,13 @@ import UIKit
 class UBaseScrollview: UIScrollView {
  
     
-
+//
 //    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
 //
 //        DLog(self.contentSize.width)
-//
+//        if <#condition#> {
+//            <#code#>
+//        }
 //          let pan = gestureRecognizer as! UIPanGestureRecognizer
 //        let velocity: CGPoint = pan.velocity(in: self)
 //        let location: CGPoint = pan .location(in: self)
@@ -38,13 +40,16 @@ class UBaseScrollview: UIScrollView {
 //        }
 //        return false
 //    }
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool{
-//        if (otherGestureRecognizer.view?.isKind(of: NSClassFromString("UILayoutContainerView")!))! {
-//            if otherGestureRecognizer.state == .began && self.contentOffset.x == 0 {
-//                return true
-//            }
-//        }
-//        return false
-//    }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool{
+        // 首先判断otherGestureRecognizer是不是系统pop手势
+        if (otherGestureRecognizer.view?.isKind(of: NSClassFromString("UILayoutContainerView")!))! {
+            // 再判断系统手势的state是began还是fail，同时判断scrollView的位置是不是正好在最左边
+            
+            if otherGestureRecognizer.state == .began && self.contentOffset.x == 0 {
+                return true
+            }
+        }
+        return false
+    }
     
 }

@@ -44,7 +44,18 @@ class UDetailViewController: UBaseViewController {
     }
 
 }
-extension UDetailViewController: UITableViewDelegate,UITableViewDataSource {
+extension UDetailViewController: UITableViewDelegate,UITableViewDataSource ,UIGestureRecognizerDelegate{
+//    - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+//    {
+//            CGPoint velocity = [(UIPanGestureRecognizer *)gestureRecognizer velocityInView:self];
+//            CGPoint location = [gestureRecognizer locationInView:self];
+//
+//            if (velocity.x > 0.0f&&(int)location.x%(int)[UIScreen mainScreen].bounds.size.width<60) {
+//                    return NO;
+//            }
+//            return YES;
+//    }
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         delegate?.comicWillEndDragging(scrollView)
     }

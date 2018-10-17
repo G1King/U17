@@ -84,7 +84,7 @@ class UComicHead: UIView {
         bgView.snp.makeConstraints{$0.edges.equalToSuperview()}
         bgView.addSubview(coreView)
         coreView.snp.makeConstraints{
-            $0.left.bottom.equalToSuperview().inset(UIEdgeInsetsMake(0, 20, 20, 0))
+            $0.left.bottom.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 0))
             $0.width.equalTo(90)
             $0.height.equalTo(120)
         }
@@ -132,9 +132,9 @@ class UComicHead: UIView {
         didSet{
             guard let detailModel = detailRealTime else { return  }
             let text = NSMutableAttributedString(string: "点击 收藏")
-            text.insert(NSAttributedString(string: "\(detailModel.click_total ?? "0")", attributes: [NSAttributedStringKey.foregroundColor:UIColor.orange,NSAttributedStringKey.font:UIFont.systemFont(ofSize: 15)]), at: 2)
-            text.append(NSAttributedString(string: "\(detailModel.favorite_total ?? "0")", attributes: [NSAttributedStringKey.foregroundColor: UIColor.orange,
-                                                                                                        NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]))
+            text.insert(NSAttributedString(string: "\(detailModel.click_total ?? "0")", attributes: [NSAttributedString.Key.foregroundColor:UIColor.orange,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 15)]), at: 2)
+            text.append(NSAttributedString(string: "\(detailModel.favorite_total ?? "0")", attributes: [NSAttributedString.Key.foregroundColor: UIColor.orange,
+                                                                                                        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)]))
             totalLabel.attributedText = text
             
             

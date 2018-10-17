@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
+import CocoaLumberjack
 class UMineViewController: UBaseViewController {
   private  lazy var myArray: Array = {
         return [[["icon":"mine_vip", "title": "我的VIP"],
@@ -39,6 +41,10 @@ class UMineViewController: UBaseViewController {
         table.register(cellType: UBaseTableViewCell.self)
         return table
     }()
+    lazy var button: UIButton = {
+        let button = UIButton(type: .system)
+        return button
+    }()
     lazy var head: UMineHead = {
         let h = UMineHead(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 200))
         return h
@@ -47,7 +53,9 @@ class UMineViewController: UBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+     
     }
+  
     override func configUI() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints{

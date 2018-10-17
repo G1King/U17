@@ -14,7 +14,7 @@ class UGuessLikeTCell: UBaseTableViewCell {
     
    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
+    layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.scrollDirection = .horizontal
         let cw = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cw.backgroundColor = self.contentView.backgroundColor
@@ -33,7 +33,7 @@ class UGuessLikeTCell: UBaseTableViewCell {
             $0.text = "猜你喜欢"
             contentView.addSubview($0)
             $0.snp.makeConstraints{
-                $0.top.left.right.equalToSuperview().inset(UIEdgeInsetsMake(15, 15, 15, 15))
+                $0.top.left.right.equalToSuperview().inset(UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15))
                 $0.height.equalTo(20)
             }
         }

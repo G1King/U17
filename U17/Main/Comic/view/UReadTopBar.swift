@@ -39,7 +39,7 @@ class UReadTopBar: UIView {
         }
         addSubview(title)
         title.snp.makeConstraints{
-            $0.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, 50, 0, 50))
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50))
         }
     }
 }

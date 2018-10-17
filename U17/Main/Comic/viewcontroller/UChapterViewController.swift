@@ -17,14 +17,14 @@ class UChapterViewController: UBaseViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = 10
-        layout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: floor((SCREEN_WIDTH - 30)/2), height: 40)
         let cw = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cw.backgroundColor = UIColor.white
         cw.delegate = self
         cw.dataSource = self
         cw.alwaysBounceVertical = true
-        cw.register(supplementaryViewType: UChapterCHead.self, ofKind: UICollectionElementKindSectionHeader)
+        cw.register(supplementaryViewType: UChapterCHead.self, ofKind: UICollectionView.elementKindSectionHeader)
         cw.register(cellType: UChapterCCell.self)
         return cw
     }()
@@ -59,7 +59,7 @@ extension UChapterViewController : UICollectionViewDelegate,UICollectionViewData
         return CGSize(width: SCREEN_WIDTH, height: 44)
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let head = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: UChapterCHead.self)
+        let head = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: UChapterCHead.self)
         head.model = detailStatic
         head.setClosure { [weak self] (button) in
             if self?.isPositive == true{

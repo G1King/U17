@@ -23,14 +23,14 @@ class UDescriptionTCell: UBaseTableViewCell {
             $0.text = "作品介绍"
             contentView.addSubview($0)
             $0.snp.makeConstraints{
-                $0.left.top.right.equalToSuperview().inset(UIEdgeInsetsMake(15, 15, 15, 15))
+                $0.left.top.right.equalToSuperview().inset(UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15))
                 $0.height.equalTo(20)
             }
         }
         contentView.addSubview(textView)
         textView.snp.makeConstraints{
             $0.top.equalTo(titleLabel.snp.bottom)
-            $0.left.right.bottom.equalToSuperview().inset(UIEdgeInsetsMake(15, 15, 15, 15))
+            $0.left.right.bottom.equalToSuperview().inset(UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15))
         }
     }
     var model: DetailStaticModel? {

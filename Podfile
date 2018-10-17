@@ -7,7 +7,6 @@ target 'U17' do
 
 pod 'SnapKit'
 pod 'Then'
-pod 'Moya'
 pod 'HandyJSON'
 pod 'Kingfisher'
 pod 'Reusable'
@@ -18,5 +17,8 @@ pod 'HMSegmentedControl'
 pod 'IQKeyboardManagerSwift'
 pod 'EmptyDataSet-Swift'
 pod 'CocoaLumberjack/Swift'
+pod 'RxSwift'
+pod 'RxCocoa'
+pod 'Moya/RxSwift'
 end
 

@@ -17,8 +17,8 @@ class USubscibeListViewController: UBaseViewController {
         let cw = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cw.backgroundColor = UIColor.background
         cw.alwaysBounceVertical = true
-        cw.register(supplementaryViewType: UComicCHead.self, ofKind: UICollectionElementKindSectionHeader)
-        cw.register(supplementaryViewType: UComicCFoot.self, ofKind: UICollectionElementKindSectionFooter)
+        cw.register(supplementaryViewType: UComicCHead.self, ofKind: UICollectionView.elementKindSectionHeader)
+        cw.register(supplementaryViewType: UComicCFoot.self, ofKind: UICollectionView.elementKindSectionFooter)
         cw.uHead = URefreshHeader{[weak self] in
             self?.loadData()
         }
@@ -71,8 +71,8 @@ extension USubscibeListViewController : UICollectionViewDataSource,UICollectionV
         return count.comics?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionHeader {
-            let head = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: UComicCHead.self)
+        if kind == UICollectionView.elementKindSectionHeader {
+            let head = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: UComicCHead.self)
             let comicList = subscribeList[indexPath.section]
             head.iconView.kf.setImage(urlString: comicList.titleIconUrl)
             head.titleLbl.text = comicList.itemTitle
@@ -85,7 +85,7 @@ extension USubscibeListViewController : UICollectionViewDataSource,UICollectionV
             }
             return head
         }else {
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: UComicCFoot.self)
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: UComicCFoot.self)
             return footer
         }
     }

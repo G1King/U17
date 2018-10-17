@@ -36,7 +36,7 @@ public extension Array {
     }
     
     @available(*, deprecated:3.0, message:"Use newer snp.* syntax.")
-    public func snp_distributeViewsAlong(axisType: UILayoutConstraintAxis,
+    public func snp_distributeViewsAlong(axisType: NSLayoutConstraint.Axis,
                                          fixedSpacing: CGFloat,
                                          leadSpacing: CGFloat = 0,
                                          tailSpacing: CGFloat = 0) {
@@ -49,7 +49,7 @@ public extension Array {
 
     
     @available(*, deprecated:3.0, message:"Use newer snp.* syntax.")
-    public func snp_distributeViewsAlong(axisType: UILayoutConstraintAxis,
+    public func snp_distributeViewsAlong(axisType: NSLayoutConstraint.Axis,
                                          fixedItemLength: CGFloat,
                                          leadSpacing: CGFloat = 0,
                                          tailSpacing: CGFloat = 0) {

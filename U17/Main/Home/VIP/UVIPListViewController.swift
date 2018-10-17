@@ -20,8 +20,8 @@ class UVIPListViewController: UBaseViewController {
         cw.alwaysBounceVertical = true
         cw.delegate = self
         cw.dataSource = self
-        cw.register(supplementaryViewType: UComicCHead.self, ofKind: UICollectionElementKindSectionHeader)
-        cw.register(supplementaryViewType: UComicCFoot.self, ofKind: UICollectionElementKindSectionFooter)
+        cw.register(supplementaryViewType: UComicCHead.self, ofKind: UICollectionView.elementKindSectionHeader)
+        cw.register(supplementaryViewType: UComicCFoot.self, ofKind: UICollectionView.elementKindSectionFooter)
         cw.register(cellType: UComicCCell.self)
         cw.uHead = URefreshHeader{
             [weak self] in
@@ -77,8 +77,8 @@ extension UVIPListViewController: UICollectionViewDataSource,UICollectionViewDel
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView{
-        if kind == UICollectionElementKindSectionHeader {
-            let head = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: UComicCHead.self)
+        if kind == UICollectionView.elementKindSectionHeader {
+            let head = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: UComicCHead.self)
             let comiclist = self.vipList[indexPath.section]
             head.iconView.kf.setImage(urlString: comiclist.titleIconUrl)
             head.titleLbl.text = comiclist.itemTitle
@@ -92,7 +92,7 @@ extension UVIPListViewController: UICollectionViewDataSource,UICollectionViewDel
             }
             return head
         }else {
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: UComicCFoot.self)
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: UComicCFoot.self)
             return footer
             
         }

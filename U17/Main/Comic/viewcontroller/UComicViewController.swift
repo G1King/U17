@@ -134,7 +134,7 @@ class UComicViewController: UBaseViewController {
             $0.height.equalToSuperview().offset(-navigationBarY)
         }
         DLog(contentView.bounds.size.height)
-        addChildViewController(pageVC)
+        addChild(pageVC)
         contentView.addSubview(pageVC.view)
         pageVC.view.snp.makeConstraints{
             $0.edges.equalToSuperview()
@@ -157,7 +157,7 @@ class UComicViewController: UBaseViewController {
 }
 extension UComicViewController : UIScrollViewDelegate, UComicViewWillEndDraggingDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        DLog(scrollView.contentOffset.y)
+        DLog(scrollView.contentOffset.x)
 //        DLog(mainScrollview.parallaxHeader.minimumHeight)
        
         if scrollView.contentOffset.y >= -mainScrollview.parallaxHeader.minimumHeight {

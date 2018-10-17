@@ -41,12 +41,12 @@ class UBoutiqueListViewController: UBaseViewController {
         collection.delegate = self;
         collection.dataSource = self;
         collection.alwaysBounceVertical = true
-        collection.contentInset = UIEdgeInsetsMake(SCREEN_WIDTH * 0.467, 0, 0, 0)
+        collection.contentInset = UIEdgeInsets(top: SCREEN_WIDTH * 0.467, left: 0, bottom: 0, right: 0)
         collection.scrollIndicatorInsets = collection.contentInset
         collection.register(cellType: UComicCCell.self)
         collection.register(cellType: UBoardCCell.self)
-        collection.register(supplementaryViewType: UComicCHead.self, ofKind: UICollectionElementKindSectionHeader)
-        collection.register(supplementaryViewType: UComicCFoot.self, ofKind: UICollectionElementKindSectionFooter)
+        collection.register(supplementaryViewType: UComicCHead.self, ofKind: UICollectionView.elementKindSectionHeader)
+        collection.register(supplementaryViewType: UComicCFoot.self, ofKind: UICollectionView.elementKindSectionFooter)
         collection.uHead = URefreshHeader{
             [weak self] in self?.fetchData(false)
         }
@@ -138,8 +138,8 @@ extension UBoutiqueListViewController: UICollectionViewDelegate, UICollectionVie
    }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionHeader {
-            let head  = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, for: indexPath, viewType: UComicCHead.self)
+        if kind == UICollectionView.elementKindSectionHeader {
+            let head  = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: UComicCHead.self)
             let comiclist = comicLists[indexPath.section];
             head.iconView.kf.setImage(urlString: comiclist.newTitleIconUrl);
             head.titleLbl.text = comiclist.itemTitle
@@ -159,7 +159,7 @@ extension UBoutiqueListViewController: UICollectionViewDelegate, UICollectionVie
             }
             return head;
         }else {
-            let foot = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, for: indexPath, viewType: UComicCFoot.self)
+            let foot = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: UComicCFoot.self)
             return foot
         }
     }

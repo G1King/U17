@@ -18,9 +18,9 @@ class UTicketTCell: UBaseTableViewCell {
     var model: DetailRealtimeModel? {
         didSet{
             guard let item = model else { return }
-            let text = NSMutableAttributedString(string: "本月月票       |           累计月票  ", attributes: [NSAttributedStringKey.foregroundColor:UIColor.lightGray,NSAttributedStringKey.font:UIFont.systemFont(ofSize: 14)])
-            text.append(NSAttributedString(string: "\(item.comic?.total_ticket ?? "")", attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 16),NSAttributedStringKey.foregroundColor:UIColor.orange]))
-            text.insert(NSAttributedString(string: "\(item.comic?.monthly_ticket ?? "" )", attributes: [NSAttributedStringKey.foregroundColor:UIColor.orange,NSAttributedStringKey.font:UIFont.systemFont(ofSize: 16)]), at: 6)
+            let text = NSMutableAttributedString(string: "本月月票       |           累计月票  ", attributes: [NSAttributedString.Key.foregroundColor:UIColor.lightGray,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14)])
+            text.append(NSAttributedString(string: "\(item.comic?.total_ticket ?? "")", attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16),NSAttributedString.Key.foregroundColor:UIColor.orange]))
+            text.insert(NSAttributedString(string: "\(item.comic?.monthly_ticket ?? "" )", attributes: [NSAttributedString.Key.foregroundColor:UIColor.orange,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16)]), at: 6)
             textLabel?.attributedText = text
             textLabel?.textAlignment = .center
             
